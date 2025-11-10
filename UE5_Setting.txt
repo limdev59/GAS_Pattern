@@ -1,0 +1,5 @@
+UE5 블랭크 프로젝트 설정
+Edit 탭 - Editor Preferences - reinstancing 끄기
+Edit 탭 - Project Setting - 만든 레벨을 기본 레벨로
+
+사용할 에셋 선택 - 우클 - Asset Action - 마이그레이션 이후 프로젝트 폴더의 콘텐츠 폴더 선택
