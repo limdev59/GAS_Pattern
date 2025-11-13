@@ -33,3 +33,28 @@ AGP_PlayerCharacter::AGP_PlayerCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	FollowCamera->bUsePawnControlRotation = false;
 }
+
+UAbilitySystemComponent* AGP_PlayerCharacter::GetAbilitySystemComponent() const
+{
+	AGP_PlayerState* PlayerState = GetPlayerState<AGP_PlayerState>(GetPlayerState());
+	if (!IsValid(PlayerState))return nullptr;
+
+	return PlayerState->GetAbilitySystemComponent();
+}
+
+void AGP_PlayerCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if (!IsValid(GetAbilitySystemComponent())) return;
+
+	GetAbilitySystemComponent()->InitAbilityActorInfo(GetPlayerState(), this);
+}
+
+void AGP_PlayerCharacter::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+	if (!IsValid(GetAbilitySystemComponent())) return;
+
+	GetAbilitySystemComponent()->InitAbilityActorInfo(GetPlayerState(), this);
+}

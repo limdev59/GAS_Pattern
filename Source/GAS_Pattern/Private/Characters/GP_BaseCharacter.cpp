@@ -10,5 +10,10 @@ AGP_BaseCharacter::AGP_BaseCharacter()
 
 }
 
+UAbilitySystemComponent* AGP_BaseCharacter::GetAbilitySystemComponent() const
+{
+	return nullptr;
+}
+
 
 
