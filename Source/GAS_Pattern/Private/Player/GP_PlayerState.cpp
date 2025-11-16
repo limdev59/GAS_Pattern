@@ -1,4 +1,5 @@
 #include "Player/GP_PlayerState.h"
+#include "AbilitySystemComponent.h"
 
 
 AGP_PlayerState::AGP_PlayerState()
