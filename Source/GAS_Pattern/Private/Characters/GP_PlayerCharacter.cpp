@@ -4,6 +4,8 @@
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Player/GP_PlayerState.h"
+#include "AbilitySystemComponent.h"
 
 AGP_PlayerCharacter::AGP_PlayerCharacter()
 {
@@ -36,10 +38,10 @@ AGP_PlayerCharacter::AGP_PlayerCharacter()
 
 UAbilitySystemComponent* AGP_PlayerCharacter::GetAbilitySystemComponent() const
 {
-	AGP_PlayerState* PlayerState = GetPlayerState<AGP_PlayerState>(GetPlayerState());
-	if (!IsValid(PlayerState))return nullptr;
+	AGP_PlayerState* GPPlayerState = Cast<AGP_PlayerState>(GetPlayerState());
+	if (!IsValid(GPPlayerState))return nullptr;
 
-	return PlayerState->GetAbilitySystemComponent();
+	return GPPlayerState->GetAbilitySystemComponent();
 }
 
 void AGP_PlayerCharacter::PossessedBy(AController* NewController)

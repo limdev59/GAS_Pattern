@@ -12,7 +12,7 @@ class USpringArmComponent;
 class UCameraComponent;
 
 UCLASS()
-class GAS_PATTERN_API AGP_PlayerCharacter : public AGP_BaseCharacter, public IAbilitySystemInterface
+class GAS_PATTERN_API AGP_PlayerCharacter : public AGP_BaseCharacter
 {
 	GENERATED_BODY()
 
