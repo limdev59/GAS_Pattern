@@ -6,6 +6,8 @@
 
 #include "GP_BaseCharacter.generated.h"
 
+class UGameplayAbility;
+
 UCLASS(abstract)
 class GAS_PATTERN_API AGP_BaseCharacter : public ACharacter, public IAbilitySystemInterface
 {
@@ -14,4 +16,10 @@ class GAS_PATTERN_API AGP_BaseCharacter : public ACharacter, public IAbilitySyst
 public:
 	AGP_BaseCharacter();
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
+protected:
+	void GiveStartupAbilities();
+private:
+	UPROPERTY(EditDefaultsOnly, Category = "GAS|Abilities")
+	TArray<TSubclassOf<UGameplayAbility>> StartupAbilities;
 };
