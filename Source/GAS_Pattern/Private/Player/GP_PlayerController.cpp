@@ -3,6 +3,12 @@
 #include "EnhancedInputComponent.h"
 #include "GameFramework/Character.h"
 
+#include "AnalyticsBlueprintLibrary.h"
+#include "AnalyticsEventAttribute.h"
+
+#include "GameFramework/PlayerState.h"
+#include "Engine/World.h"
+
 void AGP_PlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
@@ -58,6 +64,22 @@ void AGP_PlayerController::Look(const FInputActionValue& Value)
 	AddPitchInput(LookAxisVector.Y);
 }
 
-void AGP_PlayerController::Primary() {
+void AGP_PlayerController::Primary()
+{
 	UE_LOG(LogTemp, Warning, TEXT("Primary"));
+
+	TArray<FAnalyticsEventAttr> Attributes;
+
+	int32 PlayerIdInt = 0;
+	if (PlayerState)
+	{
+		PlayerIdInt = PlayerState->GetPlayerId();
+	}
+	FString PlayerIdStr = FString::FromInt(PlayerIdInt);
+
+	Attributes.Add(FAnalyticsEventAttr(TEXT("PlayerID"), PlayerIdStr));
+	Attributes.Add(FAnalyticsEventAttr(TEXT("InputAction"), TEXT("Primary")));
+	Attributes.Add(FAnalyticsEventAttr(TEXT("Timestamp"), FDateTime::UtcNow().ToString()));
+
+	UAnalyticsBlueprintLibrary::RecordEventWithAttributes(TEXT("KeyInput"), Attributes);
 }

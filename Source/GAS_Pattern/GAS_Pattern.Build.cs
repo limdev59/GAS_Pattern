@@ -16,10 +16,13 @@ public class GAS_Pattern : ModuleRules
             "EnhancedInput",
             "GameplayAbilities",
             "GameplayTasks",
-            "GameplayTags"
+            "GameplayTags",
+            "AnalyticsBlueprintLibrary" ,
+            
         });
 
-        PrivateDependencyModuleNames.AddRange(new string[] { });
+        PrivateDependencyModuleNames.AddRange(new string[] {
+        });
 
     }
 }
