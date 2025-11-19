@@ -24,18 +24,6 @@
 		{
 			"Name": "GameplayAbilities",
 			"Enabled": true
-		},
-		{
-			"Name": "AnalyticsBlueprintLibrary",
-			"Enabled": true
-		},
-		{
-			"Name": "AnalyticsMulticast",
-			"Enabled": true
-		},
-		{
-			"Name": "FileLogging",
-			"Enabled": true
 		}
 	]
 }

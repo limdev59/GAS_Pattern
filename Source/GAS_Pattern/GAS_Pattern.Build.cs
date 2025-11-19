@@ -9,20 +9,19 @@ public class GAS_Pattern : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
         PublicDependencyModuleNames.AddRange(new string[] {
-            "Core", 
-            "CoreUObject", 
-            "Engine", 
-            "InputCore", 
+            "Core",
+            "CoreUObject",
+            "Engine",
+            "InputCore",
             "EnhancedInput",
             "GameplayAbilities",
             "GameplayTasks",
             "GameplayTags",
-            "AnalyticsBlueprintLibrary" ,
-            
+ 
         });
 
         PrivateDependencyModuleNames.AddRange(new string[] {
-        });
 
+        });
     }
 }
